@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:text-align="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registration and Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<style>
+    h1 {
+        text-align: center;
+        font: normal normal bold 20px/23px Arial;
+        letter-spacing: 0px;
+        color: #2699FB;
+        opacity: 1;
+    }
+
+    div {
+        margin: 25px 50px 75px 100px;
+        text-align: left;
+        font: normal normal bold 14px/16px Arial;
+        letter-spacing: 0px;
+        color: #2699FB;
+        opacity: 1;
+    }
+
+    #btn {
+        text-align: center;
+    }
+
+
+</style>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <h1>ZALOGUJ SIĘ</h1>
+            <form th:action="@{/login}" method="post">
+                <!--  error msg -->
+                <div th:if="${param.error}">
+                    <div class="alert alert-danger">Nieprawidłowy login lub hasło.</div>
+                </div>
+                <!--  logout msg -->
+                <div th:if="${param.logout}">
+                    <div class="alert alert-info">Wylogowałeś się.</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Login</label>:
+                    <input type="text" class="form-control" id="username" name="username"
+                           placeholder="Wpisz login" autofocus="autofocus">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Hasło</label>:
+                    <input type="password" class="form-control" id="password" name="password"
+                           placeholder="Wpisz hasło"/>
+                </div>
+
+                <div class="form-group" id="btn">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" id="login-submit"
+                            name="login-submit">ZALOGUJ SIĘ
+                    </button>
+                    <span >Nie masz konta?<a href="/" th:href="@{/registration}">Zarejestruj się</a></span>
+                    </span>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>

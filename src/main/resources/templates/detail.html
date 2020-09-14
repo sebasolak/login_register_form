@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" >
+<head >
+    <meta charset="UTF-8">
+    <title>Beer detail</title>
+</head>
+<body >
+<div ></div>
+<div th:each="beer :${beers}"
+     style="margin: 10px; padding: 10px; border: 1px #000 solid;"
+     class="beer-list">
+    Img:
+    <img height="50" th:src="${beer.image_url}"/>
+    Name:
+    <p th:text="${beer.name}"></p>
+    Description:
+    <p th:text="${beer.description}">
+
+    </p> Ingredients:
+    <p th:text="${beer.ingredients}"></p>
+</div>
+
+
+</body>
+</html>
